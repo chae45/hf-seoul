@@ -9,17 +9,13 @@ resource "aws_efs_file_system" "stg-efs" {
   }
 }
 
-## 로컬 변수로 서브넷 ID를 정의
-#locals {
-#  stg_subnet_ids = {
-#    "subnet-1" = aws_subnet.STG-VPC-BASTION-PUB-2A.id,
-#    "subnet-2" = aws_subnet.STG-VPC-BASTION-PUB-2C.id
-#  }
-#}
 
 # VPC 내 모든 서브넷에 EFS 마운트 타겟 생성
 resource "aws_efs_mount_target" "stg-efs-target" {
-  for_each = local.stg_subnet_ids  # 로컬 맵 변수를 사용
+  for_each = {
+    "subnet-1" = aws_subnet.STG-VPC-BASTION-PUB-2A.id,
+    "subnet-2" = aws_subnet.STG-VPC-BASTION-PUB-2C.id
+  }
 
   file_system_id   = aws_efs_file_system.stg-efs.id
   subnet_id        = each.value
