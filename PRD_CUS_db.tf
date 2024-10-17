@@ -73,7 +73,7 @@ resource "aws_db_parameter_group" "hf-rds-parameter" {
 
 # DB 서브넷 그룹
 resource "aws_db_subnet_group" "db_subnet" {
-  name       = "hf-subnetgroup"
+  name       = "hf-subnetgroup2"
   subnet_ids = [aws_subnet.PRD-CUS-VPC-BASTION-PUB-2A.id, aws_subnet.PRD-CUS-VPC-BASTION-PUB-2C.id, aws_subnet.PRD-CUS-VPC-PRI-2A.id, aws_subnet.PRD-CUS-VPC-PRI-2C.id]
 
   tags = {
