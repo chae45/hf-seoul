@@ -34,7 +34,7 @@ resource "aws_eks_cluster" "stg-k8s-cluster" {
   role_arn = "arn:aws:iam::992382441622:role/eks-cluster-role"
 
   vpc_config {
-    stg_subnet_ids = [aws_subnet.STG-VPC-BASTION-PUB-2A.id, aws_subnet.STG-VPC-BASTION-PUB-2C.id,aws_subnet.STG-VPC-PRI-2A.id,aws_subnet.STG-VPC-PRI-2C.id]
+    subnet_ids = [aws_subnet.STG-VPC-BASTION-PUB-2A.id, aws_subnet.STG-VPC-BASTION-PUB-2C.id,aws_subnet.STG-VPC-PRI-2A.id,aws_subnet.STG-VPC-PRI-2C.id]
   }
 
   # Ensure that IAM Role permissions are created before and deleted after EKS Cluster handling.
