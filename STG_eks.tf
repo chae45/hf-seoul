@@ -1,20 +1,4 @@
-#Cross-account pass role
-resource "aws_iam_role" "cross_account_role" {
-  name = "cross-account-role"
 
-  assume_role_policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Effect = "Allow"
-        Principal = {
-          AWS = "arn:aws:iam::975050099328:role/eks-cluster-role"
-        }
-        Action = "sts:AssumeRole"
-      }
-    ]
-  })
-}
 
 # # # eks cluster IAM Role생성
 # resource "aws_iam_role" "eks-cluster-role" {
@@ -49,7 +33,7 @@ resource "aws_iam_role" "cross_account_role" {
 # eks-Cluster 생성
 resource "aws_eks_cluster" "stg-k8s-cluster" {
   name     = "stg-k8s-cluster"
-  role_arn = "arn:aws:iam::992382441622:role/eks-cluster-role"
+  role_arn = "arn:aws:iam::975050099328:role/eks-cluster-role"
 
   vpc_config {
     subnet_ids = [aws_subnet.STG-VPC-BASTION-PUB-2A.id, aws_subnet.STG-VPC-BASTION-PUB-2C.id,aws_subnet.STG-VPC-PRI-2A.id,aws_subnet.STG-VPC-PRI-2C.id]
