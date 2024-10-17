@@ -19,9 +19,9 @@ resource "aws_efs_file_system" "stg-efs" {
 
 # VPC 내 모든 서브넷에 EFS 마운트 타겟 생성
 resource "aws_efs_mount_target" "stg-efs-target" {
-  for_each = local.subnet_ids  # 로컬 맵 변수를 사용
+  for_each = local.stg_subnet_ids  # 로컬 맵 변수를 사용
 
   file_system_id   = aws_efs_file_system.stg-efs.id
-  stg_subnet_id        = each.value
+  subnet_id        = each.value
   security_groups  = [aws_security_group.STG-VPC-EFS-SG.id]
 }
