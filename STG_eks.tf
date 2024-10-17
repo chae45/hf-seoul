@@ -8,7 +8,7 @@ resource "aws_iam_role" "cross_account_role" {
       {
         Effect = "Allow"
         Principal = {
-          AWS = "arn:aws:iam::975050099328:role/ROLE_NAME"
+          AWS = "arn:aws:iam::975050099328:role/eks-cluster-role"
         }
         Action = "sts:AssumeRole"
       }
