@@ -9,13 +9,13 @@
 #}
 
 # DB 구성
-resource "aws_db_instance" "db" {
+resource "aws_db_instance" "db-stg" {
   identifier_prefix      = "hf-stg-database"
   allocated_storage      = 10
   engine                 = "mariadb"
   engine_version         = "10.11.8"
   instance_class         = "db.t3.micro"
-  db_name                = "test"
+  db_name                = "stg-test"
   username               = "ham"
   password               = "12341234"
   parameter_group_name   = "default.mariadb10.11"
