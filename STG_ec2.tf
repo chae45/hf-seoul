@@ -62,38 +62,38 @@ resource "aws_instance" "STG-VPC-EKS-MANAGED-SERVER-2C" {
 }
 
 
-data "aws_ami" "amzlinux2" {
-  most_recent = true
-  owners      = ["amazon"]
-  name_regex  = "^amzn2-"
-
-  filter {
-    name   = "name"
-    values = ["amzn2-ami-kernel-*-gp2"]
-  }
-
-  filter {
-    name   = "architecture"
-    values = ["x86_64"]
-  }
-
-  filter {
-    name   = "root-device-type"
-    values = ["ebs"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-}
-
+#data "aws_ami" "amzlinux2" {
+#  most_recent = true
+#  owners      = ["amazon"]
+#  name_regex  = "^amzn2-"
+#
+#  filter {
+#    name   = "name"
+#    values = ["amzn2-ami-kernel-*-gp2"]
+#  }
+#
+#  filter {
+#    name   = "architecture"
+#    values = ["x86_64"]
+#  }
+#
+#  filter {
+#    name   = "root-device-type"
+#    values = ["ebs"]
+#  }
+#
+#  filter {
+#    name   = "virtualization-type"
+#    values = ["hvm"]
+#  }
+#}
+#
 # Ubuntu 22.04 AMI 검색
-data "aws_ami" "ubuntu" {
-  most_recent = true
-  owners      = ["099720109477"]  # Ubuntu 공식 AWS 계정 ID
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
-  }
-}
+#data "aws_ami" "ubuntu" {
+#  most_recent = true
+#  owners      = ["099720109477"]  # Ubuntu 공식 AWS 계정 ID
+#  filter {
+#    name   = "name"
+#    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
+#  }
+#}
