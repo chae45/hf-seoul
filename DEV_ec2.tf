@@ -1,8 +1,8 @@
 # Key (ssh-keygen -m PEM -f HF)
-resource "aws_key_pair" "key" {
-  key_name   = "HF"
-  public_key = file("HF.pub")
-}
+#resource "aws_key_pair" "key" {
+#  key_name   = "HF"
+#  public_key = file("HF.pub")
+#}
 
 # Public에 DEV-VPC-BASTION-PUB-2A 생성
 resource "aws_instance" "DEV-VPC-BASTION-PUB" {
