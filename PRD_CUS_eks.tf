@@ -1,3 +1,17 @@
+#Cross-account pass role
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::ACCOUNT_ID:role/ROLE_NAME"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+
 # eks cluster IAM Role생성
 resource "aws_iam_role" "eks-cluster-role" {
   name = "eks-cluster-role"
