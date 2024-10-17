@@ -49,7 +49,7 @@ resource "aws_eks_node_group" "stg-node-1" {
   cluster_name    = aws_eks_cluster.stg-k8s-cluster.name
   node_group_name = "stg-node-group-1"
   node_role_arn = "arn:aws:iam::992382441622:role/EKSNodeGroupRole"
-  stg_subnet_ids      = [aws_subnet.STG-VPC-PRI-2A.id]
+  subnet_ids      = [aws_subnet.STG-VPC-PRI-2A.id]
 
   tags = {
     "k8s.io/cluster-autoscaler/enabled"         = "true"
@@ -74,7 +74,7 @@ resource "aws_eks_node_group" "stg-node-2" {
   cluster_name    = aws_eks_cluster.stg-k8s-cluster.name
   node_group_name = "stg-node-group-2"
   node_role_arn = "arn:aws:iam::992382441622:role/EKSNodeGroupRole"
-  stg_subnet_ids      = [aws_subnet.STG-VPC-PRI-2C.id]
+  subnet_ids      = [aws_subnet.STG-VPC-PRI-2C.id]
 
   tags = {
     "k8s.io/cluster-autoscaler/enabled"         = "true"
