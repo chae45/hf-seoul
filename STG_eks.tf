@@ -42,5 +42,5 @@ resource "aws_eks_cluster" "stg-k8s-cluster" {
 }
 
 output "stg_endpoint" {
-  value = aws_eks_cluster.stg-k8s-cluster.stg_endpoint
+  value = aws_eks_cluster.stg-k8s-cluster.endpoint
 }
