@@ -1,3 +1,11 @@
+# 로컬 변수로 서브넷 ID를 정의
+locals {
+  stg_subnet_ids = {
+    "subnet-1" = aws_subnet.STG-VPC-BASTION-PUB-2A.id,
+    "subnet-2" = aws_subnet.STG-VPC-BASTION-PUB-2C.id
+  }
+}
+
 # DB 서브넷 그룹
 resource "aws_db_subnet_group" "stg_db_subnet" {
   name       = "stg-hf-subnetgroup"
@@ -7,6 +15,8 @@ resource "aws_db_subnet_group" "stg_db_subnet" {
     Name = "stg-hf-subnetgroup"
   }
 }
+
+
 
 # DB 구성
 resource "aws_db_instance" "db-stg" {
