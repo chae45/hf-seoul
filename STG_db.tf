@@ -1,12 +1,12 @@
-# DB 서브넷 그룹
-resource "aws_db_subnet_group" "db_subnet" {
-  name       = "stg-hf-subnetgroup"
-  subnet_ids = [aws_subnet.STG-VPC-BASTION-PUB-2A.id, aws_subnet.STG-VPC-BASTION-PUB-2C.id, aws_subnet.STG-VPC-PRI-2A.id, aws_subnet.STG-VPC-PRI-2C.id]
-
-  tags = {
-    Name = "stg-hf-subnetgroup"
-  }
-}
+## DB 서브넷 그룹
+#resource "aws_db_subnet_group" "db_subnet" {
+#  name       = "stg-hf-subnetgroup"
+#  subnet_ids = [aws_subnet.STG-VPC-BASTION-PUB-2A.id, aws_subnet.STG-VPC-BASTION-PUB-2C.id, aws_subnet.STG-VPC-PRI-2A.id, aws_subnet.STG-VPC-PRI-2C.id]
+#
+#  tags = {
+#    Name = "stg-hf-subnetgroup"
+#  }
+#}
 
 # DB 구성
 resource "aws_db_instance" "db" {
