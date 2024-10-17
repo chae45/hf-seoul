@@ -41,6 +41,6 @@ resource "aws_eks_cluster" "stg-k8s-cluster" {
   # Otherwise, EKS will not be able to properly delete EKS managed EC2 infrastructure such as Security Groups.
 }
 
-output "endpoint" {
-  value = aws_eks_cluster.stg-k8s-cluster.endpoint
+output "stg_endpoint" {
+  value = aws_eks_cluster.stg-k8s-cluster.stg_endpoint
 }
